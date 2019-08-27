@@ -1,0 +1,9 @@
+.vs/
+*/Debug/
+*/wifi_ssid.h
+*/__vm/*.xml
+
+*.vcxproj
+*.filters
+*.user
+*.sln
