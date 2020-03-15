@@ -2,6 +2,8 @@
 */Debug/
 */wifi_ssid.h
 */__vm/*.xml
+.vscode/
+bin/
 
 *.vcxproj
 *.filters
