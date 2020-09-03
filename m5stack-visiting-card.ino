@@ -3,6 +3,7 @@
 #include <Ticker.h>
 #include <ArduinoJson.h>
 #include <Adafruit_NeoPixel.h>
+#include <BLEDevice.h>
 
 #include "colors.h"
 #include "mode_selector.h"
@@ -10,6 +11,7 @@
 #include "text.h"
 #include "scroll_text.h"
 #include "m5go-led.h"
+#include "cocoa-finder.h"
 
 namespace
 {
@@ -30,6 +32,7 @@ namespace
 }
 
 Ticker ticker;
+CocoaFinder cocoa_finder;
 
 ModeSelector mode;
 M5GoLed led(&neopixel, neopixel_num);
@@ -41,6 +44,7 @@ void setup() {
 	Serial.begin(baud_rate);
 
 	led.Begin();
+	cocoa_finder.Begin();
 
 	// 背景
 	M5.Lcd.fillScreen(background_color);
@@ -84,6 +88,8 @@ void setup() {
 
 void loop()
 {
+	cocoa_finder.Update();
+	delay(100);
 }
 
 void UpdateBatteryLevel()
